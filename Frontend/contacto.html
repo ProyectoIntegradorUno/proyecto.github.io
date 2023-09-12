@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haus Mobel</title>
+    <link rel="icon" type="image/x-icon" href="/img/bg.jpg" />
+    <link rel="stylesheet" href="contacto.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Contacto</h1>
+      <form id="contact-form" action="procesar.php" method="POST">
+        <div class="input-container">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required />
+        </div>
+
+        <div class="input-container">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="input-container">
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        </div>
+
+        <div class="button-contact">
+          <div class="input-container">
+            <input type="submit" value="Enviar" />
+          </div>
+          <div class="input-container">
+            <a href="/" class="btn">Volver</a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Link To JS -->
+    <script src="main.js"></script>
+  </body>
+</html>
