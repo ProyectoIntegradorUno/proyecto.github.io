@@ -60,7 +60,7 @@ header {
   min-height: 100vh;
   background-image: url(img/background.jpg);
   background-repeat: no-repeat;
-  background-size: covere;
+  background-size: cover;
   background-position: right;
   background-attachment: fixed;
   display: flex;
@@ -401,7 +401,7 @@ textarea {
 }
 
 input[type="submit"] {
-  background-color: #333;
+  background: #83b735;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -423,13 +423,13 @@ input[type="submit"] {
 
 .btn {
   padding: 10px 14px;
-  background: #83b735;
+  background-color: #333;
   color: #fff;
   border-radius: 0.3rem;
   font-size: 14px;
   text-decoration: none;
 }
 
-.btn:hover {
+input[type="submit"]:hover {
   background: #8fc53d;
 }
