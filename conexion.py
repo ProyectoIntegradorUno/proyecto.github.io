@@ -68,30 +68,3 @@ class CrudClientes:
         except Error as ex:
             print("Error al eliminar cliente: {0}".format(ex))
 
-if __name__ == "__main__":
-    crud_clientes = CrudClientes()
-    
-    # Ejemplo de creación de cliente
-    crud_clientes.crear_cliente(
-        cuit="12345678901",
-        nombre="Juan",
-        apellido="Perez",
-        mail="juan@example.com",
-        domicilio_fiscal="Calle Principal",
-        domicilio_de_entrega="Calle Secundaria",
-        telefono="555-555-5555",
-        password="contraseña123",
-        verificado=1
-    )
-
-    # Ejemplo de lectura de cliente
-    crud_clientes.leer_cliente("12345678901")
-
-    # Ejemplo de actualización de cliente
-    crud_clientes.actualizar_cliente("12345678901", "Juanita", "Perez", "juanita@example.com")
-
-    # Ejemplo de eliminación de cliente
-    crud_clientes.eliminar_cliente("12345678901")
-
-    # Cierra la conexión a la base de datos al finalizar
-    crud_clientes.conexion_db.cerrar_conexion()
