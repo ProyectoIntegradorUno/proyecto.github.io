@@ -178,6 +178,39 @@ CREATE TABLE IF NOT EXISTS `Empresa`.`Usuarios` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `Categoria`.`empleados`
+-- -----------------------------------------------------
+
+CREATE TABLE empleados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    puesto VARCHAR(255),
+    salario DECIMAL(10, 2),
+    fecha_contrato DATE)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `Comentarios`.`Producto`
+-- -----------------------------------------------------
+
+CREATE TABLE comentarios_productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    producto_id INT NOT NULL,
+    cliente_id INT NOT NULL,
+    comentario TEXT,
+    calificacion INT NOT NULL,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (producto_id) REFERENCES Productos(id),
+    FOREIGN KEY (cliente_id) REFERENCES Clientes(id))
+ENGINE = InnoDB;
+
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';

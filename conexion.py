@@ -9,6 +9,7 @@ class ConexionDB:
                 user='root',
                 password='929606lB',
                 database='Empresa',
+
             )
             print("La conexión a la base de datos fue exitosa")
 
