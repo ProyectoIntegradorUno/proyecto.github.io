@@ -12,7 +12,6 @@ Tecnologías Utilizadas:
 
 Integrantes del Equipo:
 
-- Emilio Agustín Aveiro
 - Mateo Beltramone
 - Mateo García
 - Victoria Ayala
