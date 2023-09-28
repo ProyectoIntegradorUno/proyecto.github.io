@@ -4,19 +4,18 @@
 
 Tecnologías Utilizadas:
 
--HTML
--CSS
--JavaScript
--Python
--MySQL
+- HTML
+- CSS
+- JavaScript
+- Python
+- MySQL
 
 Integrantes del Equipo:
 
-Emilio Agustín Aveiro
-Mateo Beltramone
-Mateo García
-Victoria Ayala
-Matías Camayo
-Lautaro Battiato
-Facundo Arias
-Agustín Ammazzagatti
+- Mateo Beltramone
+- Mateo García
+- Victoria Ayala
+- Matías Camayo
+- Lautaro Battiato
+- Facundo Arias
+- Agustín Ammazzagatti
