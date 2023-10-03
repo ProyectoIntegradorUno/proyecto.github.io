@@ -164,6 +164,7 @@ header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+  margin-top: 50px;
 }
 .about-img img {
   width: 80%;
