@@ -648,7 +648,7 @@ input[type="submit"]:hover {
   
 }
 .signup-container {
-  text-align: center;
+  
   max-width: 600px;
   margin: 0 auto;
   padding: 20px 50px;
@@ -656,8 +656,15 @@ input[type="submit"]:hover {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin-top: 150px;
+  
 }
-
+.signup-container p {
+  text-align: center;
+}
+.signup-container h1 {
+  text-align: center;
+  margin-top: 10%;
+}
 /* Estilos para el encabezado "Registro" */
 .signup-container h1 {
   font-size: 24px;
@@ -696,9 +703,15 @@ input[type="submit"]:hover {
   cursor: pointer;
   transition: background-color 0.3s;
   text-align: center;
+ 
+}
+.button-container {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
 }
-
 .signup-container button:hover {
   background-color: white;
   
@@ -732,6 +745,7 @@ input[type="submit"]:hover {
 
 /* Estilos para el título "Iniciar Sesión" */
 .el-body{
+  margin-top: 20%;
   background-image: url(../img/background.jpg);
   text-align: center;
   max-width: 600px;
@@ -777,6 +791,12 @@ input[type="submit"]:hover {
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+.mi-buton {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-container button:hover {
