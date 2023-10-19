@@ -7,8 +7,8 @@ class ConexionDB:
             self.connection = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='929606lB',
-                database='Empresa',
+                password='1234',
+                database='Empresa 1',
 
             )
             print("La conexión a la base de datos fue exitosa")
@@ -20,6 +20,11 @@ class ConexionDB:
         if self.connection.is_connected():
             self.connection.close()
             print("La conexión a la base de datos ha sido cerrada")
+
+cursor = conn.cursor()
+cursor.execute("SELECT * FROM Productos")
+for row in cursor.fetchall():
+    print(row)
 
 class CrudClientes:
     def __init__(self):
