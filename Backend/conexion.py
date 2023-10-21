@@ -69,3 +69,167 @@ class CrudClientes:
         except Error as ex:
             print("Error al eliminar cliente: {0}".format(ex))
 
+import mysql.connector
+from mysql.connector import Error
+
+
+
+
+class crudusuarios:
+    def __init__(self):
+        self.conexion_db =  ConexionDB()
+
+    def crear_usuario(self, cuil, nombre, apellido, rol, password):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("INSERT INTO usuarios (cuil, nombre, apellido, rol, password) VALUES (%s, %s, %s, %s, %s)", (cuil, nombre, apellido, rol, password))
+            self.conexion_db.connection.commit()
+            print("Usuario creado exitosamente")
+
+        except Error as ex:
+            print("Error al crear usuario: {0}".format(ex))
+
+    def leer_usuario(self, cuil):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("SELECT * FROM usuarios WHERE cuil = %s", (cuil,))
+            usuario = cursor.fetchone()
+            if usuario:
+                print("Usuario encontrado:")
+                print(usuario)
+            else:
+                print("Usuario no encontrado")
+
+        except Error as ex:
+            print("Error al leer usuario: {0}".format(ex))
+
+    def actualizar_usuario(self, cuil, nuevo_nombre, nuevo_apellido, nuevo_rol, nueva_password):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("UPDATE usuarios SET nombre = %s, apellido = %s, rol = %s, password = %s WHERE cuil = %s", (nuevo_nombre, nuevo_apellido, nuevo_rol, nueva_password, cuil))
+            self.conexion_db.connection.commit()
+            print("Usuario actualizado exitosamente")
+
+        except Error as ex:
+            print("Error al actualizar usuario: {0}".format(ex))
+
+    def eliminar_usuario(self, cuil):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("DELETE FROM usuarios WHERE cuil = %s", (cuil,))
+            self.conexion_db.connection.commit()
+            print("Usuario eliminado exitosamente")
+
+        except Error as ex:
+            print("Error al eliminar usuario: {0}".format(ex))
+
+    
+import mysql.connector
+from mysql.connector import Error
+
+
+
+
+class CrudFacturas:
+    def __init__(self):
+        self.conexion_db =  ConexionDB()
+
+    def crear_factura(self, fecha, modo_de_pago, cuit):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("INSERT INTO facturas (fecha, modo_de_pago, cuit) VALUES (%s, %s, %s)", (fecha, modo_de_pago, cuit))
+            self.conexion_db.connection.commit()
+            print("Factura creada exitosamente")
+
+        except Error as ex:
+            print("Error al crear factura: {0}".format(ex))
+
+    def leer_factura(self, idfactura):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("SELECT * FROM facturas WHERE idfactura = %s", (idfactura,))
+            factura = cursor.fetchone()
+            if factura:
+                print("Factura encontrada:")
+                print(factura)
+            else:
+                print("Factura no encontrada")
+
+        except Error as ex:
+            print("Error al leer factura: {0}".format(ex))
+
+    def actualizar_factura(self, idfactura, nueva_fecha, nuevo_modo_de_pago, nuevo_cuit):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("UPDATE facturas SET fecha = %s, modo_de_pago = %s, cuit = %s WHERE idfactura = %s", (nueva_fecha, nuevo_modo_de_pago, nuevo_cuit, idfactura))
+            self.conexion_db.connection.commit()
+            print("Factura actualizada exitosamente")
+
+        except Error as ex:
+            print("Error al actualizar factura: {0}".format(ex))
+
+    def eliminar_factura(self, idfactura):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("DELETE FROM facturas WHERE idfactura = %s", (idfactura,))
+            self.conexion_db.connection.commit()
+            print("Factura eliminada exitosamente")
+
+        except Error as ex:
+            print("Error al eliminar factura: {0}".format(ex))
+
+import mysql.connector
+from mysql.connector import Error
+
+
+
+
+class CrudItemsFactura:
+    def __init__(self):
+        self.conexion_db =  ConexionDB()
+
+    def crear_item_factura(self, cantidad, precio, idproducto, idfactura):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("INSERT INTO itemsfactura (cantidad, precio, idproducto, idfactura) VALUES (%s, %s, %s, %s)", (cantidad, precio, idproducto, idfactura))
+            self.conexion_db.connection.commit()
+            print("Item de factura creado exitosamente")
+
+        except Error as ex:
+            print("Error al crear item de factura: {0}".format(ex))
+
+    def leer_item_factura(self, iditems):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("SELECT * FROM itemsfactura WHERE iditems = %s", (iditems,))
+            item = cursor.fetchone()
+            if item:
+                print("Item de factura encontrado:")
+                print(item)
+            else:
+                print("Item de factura no encontrado")
+
+        except Error as ex:
+            print("Error al leer item de factura: {0}".format(ex))
+
+    def actualizar_item_factura(self, iditems, nueva_cantidad, nuevo_precio, nuevo_idproducto, nuevo_idfactura):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("UPDATE itemsfactura SET cantidad = %s, precio = %s, idproducto = %s, idfactura = %s WHERE iditems = %s", (nueva_cantidad, nuevo_precio, nuevo_idproducto, nuevo_idfactura, iditems))
+            self.conexion_db.connection.commit()
+            print("Item de factura actualizado exitosamente")
+
+        except Error as ex:
+            print("Error al actualizar item de factura: {0}".format(ex))
+
+    def eliminar_item_factura(self, iditems):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("DELETE FROM itemsfactura WHERE iditems = %s", (iditems,))
+            self.conexion_db.connection.commit()
+            print("Item de factura eliminado exitosamente")
+
+        except Error as ex:
+            print("Error al eliminar item de factura: {0}".format(ex))
+
+    
