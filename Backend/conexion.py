@@ -232,4 +232,106 @@ class CrudItemsFactura:
         except Error as ex:
             print("Error al eliminar item de factura: {0}".format(ex))
 
-    
+    class crudProductos:
+    def init(self):
+        self.conexion_db = ConexionDB() 
+
+    def crear_producto(self, descripcion, unidad, imagen, precio, tipo):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("INSERT INTO productos (descripcion, unidad, imagen, precio, tipo) VALUES (%s, %s, %s, %s, %s)", (descripcion, unidad, imagen, precio, tipo))
+            self.conexion_db.connection.commit()
+            print("Producto creado exitosamente")
+
+        except Error as ex:
+            print("Error al crear producto: {0}".format(ex))
+
+    def leer_producto(self, idproductos):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("SELECT * FROM productos WHERE idproductos = %s", (idproductos,))
+            producto = cursor.fetchone()
+            if producto:
+                print("Producto encontrado:")
+                print(producto)
+            else:
+                print("Producto no encontrado")
+
+        except Error as ex:
+            print("Error al leer producto: {0}".format(ex))
+
+    def actualizar_producto(self, idproductos, nueva_descripcion, nueva_unidad, nueva_imagen, nuevo_precio, nuevo_tipo):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("UPDATE productos SET descripcion = %s, unidad = %s, imagen = %s, precio = %s, tipo = %s WHERE idproductos = %s", (nueva_descripcion, nueva_unidad, nueva_imagen, nuevo_precio, nuevo_tipo, idproductos))
+            self.conexion_db.connection.commit()
+            print("Producto actualizado exitosamente")
+
+        except Error as ex:
+            print("Error al actualizar producto: {0}".format(ex))
+
+    def eliminar_producto(self, idproductos):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("DELETE FROM productos WHERE idproductos = %s", (idproductos,))
+            self.conexion_db.connection.commit()
+            print("Producto eliminado exitosamente")
+
+        except Error as ex:
+            print("Error al eliminar producto: {0}".format(ex))
+
+
+
+import mysql.connector
+from mysql.connector import Error
+
+
+
+
+class crudTipoProductos:
+    def init(self):
+        self.conexion_db = ConexionDB()  
+
+    def crear_tipo_producto(self, descripcion):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("INSERT INTO tipoProductos (descripcion) VALUES (%s)", (descripcion,))
+            self.conexion_db.connection.commit()
+            print("Tipo de producto creado exitosamente")
+
+        except Error as ex:
+            print("Error al crear tipo de producto: {0}".format(ex))
+
+    def leer_tipo_producto(self, idtiproductos):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("SELECT * FROM tipoProductos WHERE idtiproductos = %s", (idtiproductos,))
+            tipo_producto = cursor.fetchone()
+            if tipo_producto:
+                print("Tipo de producto encontrado:")
+                print(tipo_producto)
+            else:
+                print("Tipo de producto no encontrado")
+
+        except Error as ex:
+            print("Error al leer tipo de producto: {0}".format(ex))
+
+    def actualizar_tipo_producto(self, idtiproductos, nueva_descripcion):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("UPDATE tipoProductos SET descripcion = %s WHERE idtiproductos = %s", (nueva_descripcion, idtiproductos))
+            self.conexion_db.connection.commit()
+            print("Tipo de producto actualizado exitosamente")
+
+        except Error as ex:
+            print("Error al actualizar tipo de producto: {0}".format(ex))
+
+    def eliminar_tipo_producto(self, idtiproductos):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("DELETE FROM tipoProductos WHERE idtiproductos = %s", (idtiproductos,))
+            self.conexion_db.connection.commit()
+            print("Tipo de producto eliminado exitosamente")
+
+        except Error as ex:
+            print("Error al eliminar tipo de producto: {0}".format(ex))
