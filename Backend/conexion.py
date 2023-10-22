@@ -232,7 +232,7 @@ class CrudItemsFactura:
         except Error as ex:
             print("Error al eliminar item de factura: {0}".format(ex))
 
-    class crudProductos:
+class crudProductos:
     def init(self):
         self.conexion_db = ConexionDB() 
 
@@ -335,3 +335,51 @@ class crudTipoProductos:
 
         except Error as ex:
             print("Error al eliminar tipo de producto: {0}".format(ex))
+
+class crudRoles:
+    def init(self):
+        self.conexion_db = ConexionDB()  
+
+    def crear_roles(self, descripcion):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("INSERT INTO roles (descripcion) VALUES (%s)", (descripcion,))
+            self.conexion_db.connection.commit()
+            print("Rol creado exitosamente")
+
+        except Error as ex:
+            print("Error al crear rol: {0}".format(ex))
+
+    def leer_rol(self, idrol):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("SELECT * FROM roles WHERE idrol = %s", (idrol,))
+            rol = cursor.fetchone()
+            if rol:
+                print("Rol encontrado:")
+                print(rol)
+            else:
+                print("Rol no encontrado")
+
+        except Error as ex:
+            print("Error al leer rol: {0}".format(ex))
+
+    def actualizar_rol(self, idrol, nueva_descripcion):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("UPDATE roles SET descripcion = %s WHERE idrol = %s", (nueva_descripcion, idrol))
+            self.conexion_db.connection.commit()
+            print("Rol actualizado exitosamente")
+
+        except Error as ex:
+            print("Error al actualizar rol: {0}".format(ex))
+
+    def eliminar_rol(self, idrol):
+        try:
+            cursor = self.conexion_db.connection.cursor()
+            cursor.execute("DELETE FROM roles WHERE idrol = %s", (idrol,))
+            self.conexion_db.connection.commit()
+            print("Rol eliminado exitosamente")
+
+        except Error as ex:
+            print("Error al eliminar rol: {0}".format(ex))
