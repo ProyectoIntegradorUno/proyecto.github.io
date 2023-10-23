@@ -35,16 +35,18 @@ previewBox.forEach((close) => {
     preveiwContainer.style.display = "none";
   };
 });
-/* inicio sesion */
-const username = document.getElementById ('username')
-const password = document.getElementById ('password')
-const boton = document.getElementById ('password')
 
-boton.addEventListener ('click',(e) => {
-  e.preventDefault ()
+/* Sección inicio sesión */
+
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+const boton = document.getElementById("password");
+
+boton.addEventListener("click", (e) => {
+  e.preventDefault();
   const data = {
     username: Facundo1.value,
-    password: Facundo1.value
-  }
-   console.log(data)
-})
+    password: Facundo1.value,
+  };
+  console.log(data);
+});
