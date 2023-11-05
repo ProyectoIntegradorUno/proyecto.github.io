@@ -19,6 +19,13 @@ def main_menu():
         
         elif choice == '2':
             gestionar_usuarios()
+
+        elif choice == '3':
+            gestionar_factura()
+        
+        elif choice == '4':
+            gestionar_item_factura()
+            
       
             print("Saliendo del programa.")
             sys.exit()
@@ -100,7 +107,115 @@ def gestionar_usuarios():
         else:
             print("Opción no válida. Inténtalo de nuevo.")
 
-# Puedes agregar más funciones de gestión para otras entidades (Facturas, Items de Factura, Productos, Tipos de Productos, Roles) de manera similar.
+def gestionar_factura():
+    facturas_crud = CrudFacturas()
+    while True:
+        print("Creacion De Factura:")
+        print("1. Crear Factura")
+        print("2. Leer Factura")
+        print("3. Actualizar Factura")
+        print("4. Eliminar Factura")
+        print("5. Volver al Menú Principal")
+        choice = input("Selecciona una opción: ")
+        
+        if choice == '1':
+            fecha = input("Fecha: ")
+            modo_de_pago = input("Modo de pago: ")
+            cuit = input("Cuit: ")
+            facturas_crud.crear_factura(cuit, fecha, modo_de_pago)
+        elif choice == '2':
+            cuit = input("Cuit de la Factura a Leer: ")
+            facturas_crud.leer_factura(cuit)
+        elif choice == '3':
+            cuit = input("Cuit de la Factura a Actualizar: ")
+            nuevo_nombre = input("Nuevo Nombre: ")
+            nuevo_apellido = input("Nuevo Apellido: ")
+            nuevo_mail = input("Nuevo Mail: ")
+            nuevo_rol = input("Nuevo Rol")
+            facturas_crud.actualizar_factura(cuit, nuevo_nombre, nuevo_apellido, nuevo_mail, nuevo_rol)
+        elif choice == '4':
+            cuit = input("Cuit de la Factura a Eliminar: ")
+            facturas_crud.eliminar_factura(cuit)
+        elif choice == '5':
+            break
+        else:
+            print("Opción no válida. Inténtalo de nuevo.")
+    
+def gestionar_item_factura():
+    item_crud = CrudItemsFactura()
+    while True:
+        print("Creacion De Item de Factura:")
+        print("1. Crear Item de Factura")
+        print("2. Leer Item de Factura")
+        print("3. Actualizar Item de Facturacion")
+        print("4. Eliminar Item de facturacion")
+        print("5. Volver al Menú Principal")
+        choice = input("Selecciona una opción: ")
+
+        if choice == '1':
+            cantidad = input("Cantidad: ")
+            Precio = input("Precio: ")
+            idproducto = input("Idproducto: ")
+            idFactura = input("IdFactura:")
+            item_crud.crear_item_factura(cantidad, Precio, idproducto, idFactura)
+        elif choice == '2':
+            idFactura = input("ID de la Factura a Leer: ")
+            item_crud.leer_item_factura(idFactura)
+        elif choice == '3':
+            idFactura = input("ID de la Factura a Actualizar: ")
+            nueva_cantidad = input("Nuevo Nombre: ")
+            nuevo_precio = input("Nuevo Apellido: ")
+            nuevo_idproducto = input("Nuevo Mail: ")
+            nuevo_idFactura = input("Nuevo Rol")
+            item_crud.actualizar_item_factura(idFactura, nueva_cantidad, nuevo_idproducto, nuevo_precio, nuevo_idFactura)
+        elif choice == '4':
+            idFactura = input("ID de la Factura a Eliminar: ")
+            item_crud.eliminar_item_factura(idFactura)
+        elif choice == '5':
+            break
+        else:
+            print("Opción no válida. Inténtalo de nuevo.")
+            
+def gestionar_Productos():
+    Productos_crud = crudProductos
+    while True:
+        print("Creacion Productos:")
+        print("1. Crear Producto")
+        print("2. Leer Producto")
+        print("3. Actualizar Producto")
+        print("4. Eliminar Producto")
+        print("5. Volver al Menú Principal")
+        choice = input("Selecciona una opción: ")
+
+        if choice == '1':
+            idproductos = input ("ID del producto")
+            unidad = input("Unidades: ")
+            descripcion = input("Descripcion: ")
+            imagen = input("Inserte imagen:")
+            precio = input("Precio")
+            tipo = input("Tipo de producto")
+            Productos_crud.crear_producto(unidad, descripcion, imagen, precio, tipo, idproductos)
+        elif choice == '2':
+            idproductos = input("ID del Producto a leer: ")
+            Productos_crud.leer_producto(idproductos)
+        elif choice == '3':
+            idproductos = input("ID de el Producto a Actualizar: ")
+            nueva_descripcion = input("Nueva Descripcion: ")
+            nueva_unidad = input("Nueva Unidad: ")
+            nuevo_tipo = input("Nuevo Tipo: ")
+            nueva_imagen = input("Nueva imagen")
+            nuevo_precio = input()
+            Productos_crud.actualizar_producto(idproductos, nueva_descripcion, nueva_unidad, nuevo_tipo, nueva_imagen, nuevo_precio)
+        elif choice == '4':
+            idproductos = input("ID de el Producto a Eliminar: ")
+            Productos_crud.eliminar_producto(idproductos)
+        elif choice == '5':
+            break
+        else:
+            print("Opción no válida. Inténtalo de nuevo.")
+
+    
+
 
 if __name__ == "__main__":
     main_menu()

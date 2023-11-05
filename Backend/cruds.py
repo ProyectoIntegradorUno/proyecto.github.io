@@ -196,10 +196,10 @@ class crudProductos:
     def init(self):
         self.conexion_db = ConexionDB() 
 
-    def crear_producto(self, descripcion, unidad, imagen, precio, tipo):
+    def crear_producto(self, descripcion, unidad, imagen, precio, tipo, idproductos):
         try:
             cursor = self.conexion_db.connection.cursor()
-            cursor.execute("INSERT INTO productos (descripcion, unidad, imagen, precio, tipo) VALUES (%s, %s, %s, %s, %s)", (descripcion, unidad, imagen, precio, tipo))
+            cursor.execute("INSERT INTO productos (descripcion, unidad, imagen, precio, tipo) VALUES (%s, %s, %s, %s, %s)", (descripcion, unidad, imagen, precio, tipo, idproductos))
             self.conexion_db.connection.commit()
             print("Producto creado exitosamente")
 
