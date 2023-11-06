@@ -40,13 +40,18 @@ previewBox.forEach((close) => {
 
 const username = document.getElementById("username");
 const password = document.getElementById("password");
-const boton = document.getElementById("password");
+const boton = document.getElementById("boton");
 
 boton.addEventListener("click", (e) => {
   e.preventDefault();
+
   const data = {
-    username: Facundo1.value,
-    password: Facundo1.value,
+    username: username.value,
+    password: password.value,
   };
+
+
+
   console.log(data);
+
 });
