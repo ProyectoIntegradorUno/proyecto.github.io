@@ -1,5 +1,5 @@
 ### Proyecto de Tienda Web - Desarrollo Fullstack 2023 en el Instituto Politécnico Superior de Córdoba
-Link: [https://proyectointegradoruno.github.io/proyecto/frontend/index.html](https://github.com/ProyectoIntegradorUno/proyecto/blob/main/Frontend/index.html)
+
 ### Este repositorio alberga nuestro proyecto de tienda web desarrollado como parte del curso de Desarrollo Fullstack en el Instituto Politécnico Superior de Córdoba (ISPC).
 
 Tecnologías Utilizadas:
