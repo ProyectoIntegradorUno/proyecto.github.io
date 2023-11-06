@@ -1,6 +1,6 @@
 import mysql.connector
 from mysql.connector import Error
-
+#Conexion con MySQL#
 class ConexionDB:
     def __init__(self):
         try:
