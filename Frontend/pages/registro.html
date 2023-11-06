@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haus Mobel</title>
+    <link rel="icon" type="image/x-icon" href="../img/bg.jpg" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      />
+   </head>
+  <body class="mi-clase" id="mi-body">
+    <header>
+      <a href="/" class="logo">Haus<span>Mobel</span></a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+    <div class="signup-container">
+        <h1>¡Bienvenidos a Haus Mobel!</h1>
+        <form action="procesar-registro.php" method="post"> <!-- Define la URL del archivo que procesará el formulario de registro -->
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Ingrese su nombre">
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required placeholder="Ingrese su Correo Electronico">
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required placeholder="Ingrese su Contraseña">
+           <div class="button-container">
+            <button type="submit">Registrarse</button>
+            
+          </div>
+        </form>
+        <p>¿Ya tienes una cuenta? <a href="iniciodesesion.html">Inicia Sesión</a></p>
+    </div>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
