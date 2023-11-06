@@ -120,21 +120,20 @@ def gestionar_factura():
         
         if choice == '1':
             fecha = input("Fecha: ")
+            idfactura = input ("ID de Factura:")
             modo_de_pago = input("Modo de pago: ")
             cuit = input("Cuit: ")
-            facturas_crud.crear_factura(cuit, fecha, modo_de_pago)
+            facturas_crud.crear_factura(cuit, fecha, modo_de_pago,idfactura)
         elif choice == '2':
-            cuit = input("Cuit de la Factura a Leer: ")
+            idfactura = input("ID de la Factura a Leer: ")
             facturas_crud.leer_factura(cuit)
         elif choice == '3':
             cuit = input("Cuit de la Factura a Actualizar: ")
-            nuevo_nombre = input("Nuevo Nombre: ")
-            nuevo_apellido = input("Nuevo Apellido: ")
-            nuevo_mail = input("Nuevo Mail: ")
-            nuevo_rol = input("Nuevo Rol")
-            facturas_crud.actualizar_factura(cuit, nuevo_nombre, nuevo_apellido, nuevo_mail, nuevo_rol)
+            nueva_fecha = input("Nueva Fecha:")
+            nuevo_modo_de_pago = input("Nuevo Modo de pago:")
+            facturas_crud.actualizar_factura(cuit, nueva_fecha,nuevo_modo_de_pago)
         elif choice == '4':
-            cuit = input("Cuit de la Factura a Eliminar: ")
+            idfactura = input("ID de la Factura a Eliminar: ")
             facturas_crud.eliminar_factura(cuit)
         elif choice == '5':
             break
@@ -166,11 +165,11 @@ def gestionar_item_factura():
             nueva_cantidad = input("Nuevo Nombre: ")
             nuevo_precio = input("Nuevo Apellido: ")
             nuevo_idproducto = input("Nuevo Mail: ")
-            nuevo_idFactura = input("Nuevo Rol")
-            item_crud.actualizar_item_factura(idFactura, nueva_cantidad, nuevo_idproducto, nuevo_precio, nuevo_idFactura)
+            nuevo_idfactura = input("Nuevo Rol")
+            item_crud.actualizar_item_factura(idFactura, nueva_cantidad, nuevo_idproducto, nuevo_precio, nuevo_idfactura)
         elif choice == '4':
-            idFactura = input("ID de la Factura a Eliminar: ")
-            item_crud.eliminar_item_factura(idFactura)
+            idfactura = input("ID de la Factura a Eliminar: ")
+            item_crud.eliminar_item_factura(idfactura)
         elif choice == '5':
             break
         else:
