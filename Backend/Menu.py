@@ -1,4 +1,4 @@
-from cruds import *
+from Cruds import *
 import sys
 
 def main_menu():
@@ -25,7 +25,16 @@ def main_menu():
         
         elif choice == '4':
             gestionar_item_factura()
-            
+
+        elif choice == '5':
+            gestionar_Productos()
+
+        elif choice == '6':
+            gestionar_Tipo_de_Productos()
+
+        elif choice == '7':
+            gestion_roles()
+
       
             print("Saliendo del programa.")
             sys.exit()
@@ -213,7 +222,65 @@ def gestionar_Productos():
         else:
             print("Opción no válida. Inténtalo de nuevo.")
 
-    
+def gestionar_Tipo_de_Productos():
+    Tipo_de_Productos_crud = crudTipoProductos
+    while True:
+        print("Creacion de Tipo de Productos:")
+        print("1. Añadir Tipo de Producto")
+        print("2. Buscar un Producto")
+        print("3. Actualizar un Tipo de Producto")
+        print("4. Eliminar un Tipo de Producto")
+        print("5. Volver al Menú Principal")
+        choice = input("Selecciona una opción: ")
+
+        if choice == '1':
+            idtiproductos = input ("ID del producto")
+            descripcion = input("Descripcion: ")
+            Tipo_de_Productos_crud.crear_tipo_producto(descripcion, idtiproductos)
+        elif choice == '2':
+            idtiproductos = input("ID del Producto a leer: ")
+            Tipo_de_Productos_crud.leer_tipo_producto(idtiproductos)
+        elif choice == '3':
+            idtiproductos = input("ID de el Producto a Actualizar: ")
+            nueva_descripcion = input("Nueva Descripcion: ")
+            Tipo_de_Productos_crud.actualizar_tipo_producto(idtiproductos, nueva_descripcion)
+        elif choice == '4':
+            idtiproductos = input("ID de el Producto a Eliminar: ")
+            Tipo_de_Productos_crud.eliminar_tipo_producto(idtiproductos)
+        elif choice == '5':
+            break
+        else:
+            print("Opción no válida. Inténtalo de nuevo.")
+
+def gestion_roles():
+    Roles_crud = crudRoles
+    while True:
+        print("Creacion de Roles:")
+        print("1. Añadir un nuevo Rol")
+        print("2. Buscar un Rol")
+        print("3. Actualizar un Rol")
+        print("4. Eliminar un Rol")
+        print("5. Volver al Menú Principal")
+        choice = input("Selecciona una opción: ")
+
+        if choice == '1':
+            idrol = input ("ID del Rol:")
+            descripcion = input("Descripcion: ")
+            Roles_crud.crear_roles(descripcion, idrol)
+        elif choice == '2':
+            idrol = input("ID del Rol a buscar: ")
+            Roles_crud.leer_rol(idrol)
+        elif choice == '3':
+            idrol = input("ID de el Producto a Actualizar: ")
+            nueva_descripcion = input("Nueva Descripcion: ")
+            Roles_crud.actualizar_rol(idrol, nueva_descripcion)
+        elif choice == '4':
+            idrol = input("ID de el Producto a Eliminar: ")
+            Roles_crud.eliminar_rol(idrol)
+        elif choice == '5':
+            break
+        else:
+            print("Opción no válida. Inténtalo de nuevo.")
 
 
 if __name__ == "__main__":
