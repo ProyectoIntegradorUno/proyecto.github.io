@@ -56,8 +56,8 @@ CREATE TABLE  `Empresa`.`Clientes` (
   `domicilio_de_entrega` VARCHAR(45) NOT NULL,
   `telefono` VARCHAR(45) NOT NULL,
   `password` VARCHAR(30) NOT NULL,
-  `codigo_de_vereficacion` INT NOT NULL,
-  `vereficado` TINYINT NOT NULL DEFAULT 0,
+  `codigo_de_verificacion` INT NOT NULL,
+  `verificado` TINYINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`cuit`),
   UNIQUE INDEX `mail_UNIQUE` (`mail` ASC) VISIBLE)
 ENGINE = InnoDB;

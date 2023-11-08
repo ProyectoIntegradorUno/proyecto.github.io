@@ -7,9 +7,9 @@ menu.onclick = () => {
   navbar.classList.toggle("active");
 };
 
-window.onscroll = () => {
+/* window.onscroll = () => {
   navbar.classList.remove("active");
-};
+}; */
 
 /* Sección productos.html */
 
@@ -50,8 +50,5 @@ boton.addEventListener("click", (e) => {
     password: password.value,
   };
 
-
-
   console.log(data);
-
 });

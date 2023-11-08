@@ -1,4 +1,4 @@
-from Cruds import *
+from cruds import *
 import sys
 
 def main_menu():
